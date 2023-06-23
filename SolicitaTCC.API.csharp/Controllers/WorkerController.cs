@@ -47,8 +47,8 @@ namespace SolicitaTCC.API.csharp.Controllers
         [Route("getRequests")]
         [HttpPost]
         public IActionResult sendRequest(getRequestsWorker data)
-        {
-            try
+        
+            {try
             {
                 WorkerAdivisor sendRequest = new WorkerAdivisor();
                 var Results = sendRequest.ListRequest(data);

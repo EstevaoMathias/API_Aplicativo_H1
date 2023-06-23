@@ -84,10 +84,9 @@ namespace SolicitaTCC.API.csharp.Services
             {
                 SqlConnection conn = new SqlConnection(connectionString);
                 DataTable dt1 = new DataTable();
-                using (SqlDataAdapter adp = new SqlDataAdapter(@"EXEC PR_PEGA_SOLICITACAO @ID_ALUNO, @ID_PROFESSOR", conn))
+                using (SqlDataAdapter adp = new SqlDataAdapter(@"EXEC PR_PEGA_SOLICITACAO @ID_PROFESSOR", conn))
                 {
                     adp.SelectCommand.CommandType = CommandType.Text;
-                    adp.SelectCommand.Parameters.Add(new SqlParameter("@ID_ALUNO", Convert.ToInt32(data.AlunoID)));
                     adp.SelectCommand.Parameters.Add(new SqlParameter("@ID_PROFESSOR", Convert.ToInt32(data.OrientadorID)));
 
 
@@ -107,7 +106,7 @@ namespace SolicitaTCC.API.csharp.Services
                             request.Aluno = loginService.GetPeople(new Login(row["AlunoSolicitanteID"].ToString()));
                             request.Professor = loginService.GetPeople(new Login(row["ProfessorOrientadorID"].ToString()));
                             request.NomeProjeto = row["NomeProjeto"].ToString();
-                            request.Descricao = row["Descricao"].ToString();
+                     //       request.Descricao = row["Descricao"].ToString();
 
                             response.Add(request);
                         }

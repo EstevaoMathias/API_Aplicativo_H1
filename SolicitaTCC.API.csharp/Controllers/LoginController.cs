@@ -39,14 +39,16 @@ namespace SolicitaTCC.API.csharp.Controllers
             }
         }
 
-        [Route("getPeople")]
+        [Route("getPeople/{id}")]
         [HttpPost]
-        public IActionResult GetPeople(Login user)
+        public IActionResult GetPeople(string id)
         {
             try
             {
                 LoginService loginService = new LoginService();
-                var Results = loginService.GetPeople(user);
+                Login login = new Login(id);
+
+                var Results = loginService.GetPeople(login);
                 return Ok(new { success = true, result = Results });
             }
             catch (Exception ex)

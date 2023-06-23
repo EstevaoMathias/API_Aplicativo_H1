@@ -18,7 +18,7 @@ namespace SolicitaTCC.API.csharp.Services
                 SqlConnection conn = new SqlConnection(connectionString);
 
                 DataTable dt1 = new DataTable();
-                using (SqlDataAdapter adp = new SqlDataAdapter(@"EXEC PR_LOGIN  @NOME, @SENHA", conn))
+                using (SqlDataAdapter adp = new SqlDataAdapter(@"EXEC PR_LOGIN @NOME, @SENHA", conn))
                 {
                     adp.SelectCommand.CommandType = CommandType.Text;
                     adp.SelectCommand.Parameters.Add(new SqlParameter("@NOME", userLogin.Nome));
@@ -94,7 +94,7 @@ namespace SolicitaTCC.API.csharp.Services
                 SqlConnection conn = new SqlConnection(connectionString);
 
                 DataTable dt1 = new DataTable();
-                using (SqlDataAdapter adp = new SqlDataAdapter(@"EXEC PR_SRC_USER, @ID_PESSOA", conn))
+                using (SqlDataAdapter adp = new SqlDataAdapter(@"EXEC PR_SRC_USER @ID_PESSOA", conn))
                 {
                     adp.SelectCommand.CommandType = CommandType.Text;
                     adp.SelectCommand.Parameters.Add(new SqlParameter("@ID_PESSOA", Convert.ToInt32(user.PessoaID)));

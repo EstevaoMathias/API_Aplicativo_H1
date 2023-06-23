@@ -49,7 +49,6 @@ namespace SolicitaTCC.API.csharp.Models
 
     public class getRequestsWorker
     {
-        public int AlunoID { get; set; }
         public int OrientadorID { get; set; }
 
     }
