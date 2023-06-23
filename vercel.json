@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": " SolicitaTCC.API.csharp/SolicitaTCC.API.csharp/SolicitaTCC.API.csharp.csproj",
+      "use": "@vercel/dotnet-builder"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "http://localhost:5000"
+    }
+  ]
+}
