@@ -82,6 +82,7 @@ namespace SolicitaTCC.API.csharp.Models
 
                 professor.PessoaID = Convert.ToInt32(row["PessoaID"]);
                 professor.Nome = row["Nome"].ToString();
+                professor.Email = row["Email"].ToString();
                 professores.Add(professor);
             }
 

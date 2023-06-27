@@ -39,7 +39,7 @@ namespace SolicitaTCC.API.csharp.Controllers
             }
         }
 
-        [Route("getPeople/{id}")]
+        [Route("getPeople")]
         [HttpPost]
         public IActionResult GetPeople(string id)
         {

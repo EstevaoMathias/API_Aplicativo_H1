@@ -14,13 +14,13 @@ namespace SolicitaTCC.API.csharp.Controllers
     public class WorkerController : Controller
     {
         [Route("getAdvisor")]
-        [HttpPost]
-        public IActionResult getAdvisor(getWorker data)
+        [HttpGet]
+        public IActionResult getAdvisor()
         {
             try
             {
                 WorkerAdivisor getService = new WorkerAdivisor();
-                var Results = getService.getAdvisor(data);
+                var Results = getService.getAdvisor();
                 return Ok(new { success = true, result = Results });
             }catch (Exception ex)
             {

@@ -11,17 +11,16 @@ namespace SolicitaTCC.API.csharp.Services
         string connectionStringLocalhost = @"Data Source=LOCALHOST Catalog=APLICACAO_H1;User ID=ESTEVAO;Password=123;Integrated Security=SSPI;TrustServerCertificate=True";
         string connectionString = @"Data Source=201.62.57.93,1434;Initial Catalog=BD042070;User ID=RA042070;Password=042070;TrustServerCertificate=True";
 
-        public List<Workers> getAdvisor(getWorker data)
+        public List<Workers> getAdvisor()
         {
             try
             {
                 SqlConnection conn = new SqlConnection(connectionString);
 
                 DataTable dt1 = new DataTable();
-                using (SqlDataAdapter adp = new SqlDataAdapter(@"EXEC PR_PEGA_PROFESSOR @ID_PESSOA", conn))
+                using (SqlDataAdapter adp = new SqlDataAdapter(@"EXEC PR_PEGA_PROFESSOR", conn))
                 {
                     adp.SelectCommand.CommandType = CommandType.Text;
-                    adp.SelectCommand.Parameters.Add(new SqlParameter("@ID_PESSOA", Convert.ToInt32(data.PessoaID)));
 
 
                     adp.Fill(dt1);
